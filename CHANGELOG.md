@@ -9,12 +9,13 @@ This is the log of notable changes to the Expo client that are developer-facing.
 ### 🛠 Breaking changes
 
 - **`jest-expo`**: Removed `mockPlatformIOS()`, `mockPlatformAndroid()`, `mockPlatformWeb()`, `describeCrossPlatform()` in favor of platform specific presets like `jest-expo/universal`.
-- `Location.requestPermissionsAsync()` is no longer reject when permissions wasn't granted. Insted of this, returns `PermissionsResponse` object, which is similar to result of `Permissions.aksAsync(Permissions.Location)`. ([#5061](https://github.com/expo/expo/pull/5061) by [@lukmccall](https://github.com/lukmccall))
+- `Location.requestPermissionsAsync()` is no longer being rejected when permissions were not granted. Instead it returns `PermissionsResponse` object, which is similar to the result of `Permissions.aksAsync(Permissions.Location)`. ([#5061](https://github.com/expo/expo/pull/5061) by [@lukmccall](https://github.com/lukmccall))
 
 ### 🎉 New features
 
 - Added rich content supports for push notifications. ([#4787](https://github.com/expo/expo/pull/4787) by [@hesyifei](https://github.com/hesyifei))
 - Added `MediaLibrary.saveToAssetsAsync` function that can work without `CAMERA_ROLL` permission. ([#5678](https://github.com/expo/expo/pull/5678) by [@lukmccall](https://github.com/lukmccall))
+- Added `canAskAgain` and `granted` fields to `PermissionsResponse`. ([#5061](https://github.com/expo/expo/pull/5061) by [@lukmccall](https://github.com/lukmccall))
 
 ### 🐛 Bug fixes
 
@@ -30,6 +31,8 @@ This is the log of notable changes to the Expo client that are developer-facing.
 - Fixed `Calendar.getCalendarsAsync` rejecting on iOS 13, when `source.name` is null. ([#5994](https://github.com/expo/expo/pull/5994) by [@lukmccall](https://github.com/lukmccall))
 - Fixed handling URI with no scheme in `ExpoFileSystem`. ([#5904](https://github.com/expo/expo/pull/5904) by [@bbarthec](https://github.com/bbarthec))
 - Fixed `FileSystem#deleteAsync` in older Android SDKs. ([#5923](https://github.com/expo/expo/pull/5923) by [@bbarthec](https://github.com/bbarthec))
+- Fixed crashes when the user tries to download a file through `react-native-webview` without granted storage permission on Android. ([#5061](https://github.com/expo/expo/pull/5061) by [@lukmccall](https://github.com/lukmccall))
+- Fixed `Permissions.getAsync` result, which was inconsistent with iOS settings. ([#5061](https://github.com/expo/expo/pull/5061) by [@lukmccall](https://github.com/lukmccall))
 
 ## 35.0.0
 
